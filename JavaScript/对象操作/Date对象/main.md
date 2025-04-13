@@ -26,7 +26,7 @@ today.setHours(0, 0, 0, 0);
 
 ```javascript
 const millisecond = today.getTime();
-console.log(millisecond);
+console.log("毫秒：" + millisecond);
 ```
 
 # 格式化展示
@@ -36,5 +36,5 @@ console.log(millisecond);
 ```javascript
 const locale_string = today.toLocaleString('zh-CN');
 // const locale_string = today.toLocaleString('en-US');
-console.log(locale_string);
+console.log("区域时间字符串格式：" + locale_string);
 ```

@@ -26,11 +26,11 @@ today.setHours(0, 0, 0, 0);
  * 上面设置了小时及往后都归零，所以获取的毫秒也会发生改变
  * */
 const millisecond = today.getTime();
-console.log(millisecond);
+console.log("毫秒：" + millisecond);
 
 /**
  * 转换为参数里面的时间区域格式展示，里面参数传递日期格式展示区域
  * */
 const locale_string = today.toLocaleString('zh-CN');
 // const locale_string = today.toLocaleString('en-US');
-console.log(locale_string);
+console.log("区域时间字符串格式：" + locale_string);
