@@ -1,0 +1,24 @@
+.box {
+    width: 200px;
+    height: 100px;
+    background: lightblue;
+    margin-bottom: 10px;
+    text-align: center;
+    line-height: 100px;
+    cursor: pointer;
+}
+
+.disabled {
+    pointer-events: none; /* 无法点击或触发事件。 */
+    background: gray;
+}
+
+.revert {
+    pointer-events: revert; /* 会撤销 .disabled 中 none 的设置，又可以点击了，恢复了实践 */
+    background: lightgreen;
+}
+
+/* 被点击后就改变背景颜色，如果使用了pointer-events: none;事件就无法改变颜色 */
+.box:active {
+    background: red;
+}

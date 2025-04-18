@@ -1,0 +1,4 @@
+.container {
+    display: flex; /* 设置容器为弹性盒子 */
+    flex-direction: column; /* 让 子元素沿垂直方向（从上到下）排列。默认是水平反向 */
+}

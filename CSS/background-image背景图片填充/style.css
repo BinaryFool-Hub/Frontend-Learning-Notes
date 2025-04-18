@@ -1,0 +1,11 @@
+/*
+background-size: cover特点：
+        背景会按比例放大，直到填满整个容器。
+        可能会裁剪图片的一部分，以确保没有留白。
+*/
+body {
+    height: 100vh;
+    margin: 0;
+    background: url('皮卡丘.jpg') no-repeat center center; /* no-repeat不平铺 ，center center垂直水平都居中 */
+    background-size: cover; /* 让背景图片完全覆盖元素区域，即使需要拉伸或裁剪图片。 */
+}

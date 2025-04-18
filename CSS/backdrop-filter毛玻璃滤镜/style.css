@@ -1,0 +1,32 @@
+/*
+通常和 rgba 半透明背景搭配使用，常见于毛玻璃效果的弹窗、导航栏等。
+
+需要 position 让元素浮在其他元素上。
+
+有些浏览器需要加前缀，如 -webkit-backdrop-filter。
+
+在某些浏览器或旧版本中可能不支持。
+*/
+
+body {
+    background: url('皮卡丘.jpg') no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.blur-box {
+    width: 300px;
+    height: 200px;
+    border-radius: 16px;
+    padding: 20px;
+    color: white;
+    font-size: 20px;
+
+    background: rgba(255, 255, 255, 0.2); /* 半透明背景 */
+    backdrop-filter: blur(40px); /* 毛玻璃效果 */
+    -webkit-backdrop-filter: blur(40px); /* 兼容 Safari */
+}
