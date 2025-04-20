@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>登录</title>
+    <link rel="icon" href="user.png" type="image/png">
+
+    <!-- 请勿在项目正式环境中引用该 layui.css 地址 -->
+    <link href="../../框架/Layui/layui-v2.11.0-rc.4/css/layui.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+<form class="layui-form">
+    <div class="login-container">
+        <div class="layui-form-item">
+            <h1 class="title">登录</h1>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-wrap">
+                <div class="layui-input-prefix">
+                    <i class="layui-icon layui-icon-username"></i>
+                </div>
+                <input type="text" name="username" value="" lay-verify="required" placeholder="账号" lay-reqtext="请填写用户名" autocomplete="off" class="layui-input" lay-affix="clear">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-wrap">
+                <div class="layui-input-prefix">
+                    <i class="layui-icon layui-icon-password"></i>
+                </div>
+                <input type="password" name="password" value="" lay-verify="required" placeholder="密码" lay-reqtext="请填写密码" autocomplete="off" class="layui-input" lay-affix="eye">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <button class="layui-btn layui-btn-fluid" lay-submit lay-filter="demo-login">登录</button>
+        </div>
+    </div>
+</form>
+
+<!-- 请勿在项目正式环境中引用该 layui.js 地址 -->
+<script src="../../框架/Layui/layui-v2.11.0-rc.4/layui.js"></script>
+
+<script src="login.js"></script>
+
+</body>
+</html>
