@@ -70,3 +70,28 @@ let fun = function () {
 
 console.log(fun());
 ```
+
+# 自调用函数
+
+不需要函数名字的自调用方法，它会自己调用自己执行，然后如果有返回值可以用变量来接收一下
+
+```javascript
+let value = (function (str1) {
+    console.log("我自己会被自己调用执行");
+    return 'hello ' + str1;
+})('小明');
+
+
+console.log(value)
+```
+
+**如果去掉后面的`("小明")`就表示暂未调用，可以使用别名(接收的变量名)来调用**
+
+```javascript
+let value = (function (str1) {
+    console.log("我自己会被自己调用执行");
+    return 'hello ' + str1;
+});
+
+console.log(value('小明'))
+```
