@@ -1,4 +1,20 @@
-# 查找数据
+# 定义数组
+
+推荐使用类似python的列表定义
+
+```javascript
+let array = [1, 2, 23, 3,]; // 直接使用类似python的列表定义（推荐）
+let array1 = new Array(6);  // 定义了容量为6的数组，但是长度会自适应会自动扩容
+let array2 = new Array(1, 2, 3, 4, 4);  //  直接在里面写值，但是是不推荐的
+```
+
+# 数据取值展示
+
+## 直接展示
+
+```javascript
+console.log(array)
+```
 
 ## forEach取值
 
@@ -23,6 +39,22 @@ let array = [1, 2, 34, 4, 4, 4];
 for (let i = 0; i < array.length; i++) {
     console.log(array[i])
 }
+```
+
+## for in 循环取值
+
+```javascript
+for (const arrayKey in array) {
+    console.log(array[arrayKey])
+}
+```
+
+## join分割展示
+
+使用join()方法来输出里面传递的参数分割数组
+
+```javascript
+console.log(array.join(","));
 ```
 
 # 添加数据
@@ -78,5 +110,13 @@ array.splice(1, 1); // 从索引 1 开始删除 1 个元素
 console.log(array.indexOf(3)); // （返回索引）
 console.log(array.indexOf(99)); // -1（未找到）
 console.log(array.includes(3)); // true（是否存在）
+```
+
+# 排序
+
+```javascript
+let array = [1, 2, 23, 3,];
+array = array.sort()  // sort() 默认行为是字符串排序，不适合数字。
+array = array.sort((a, b) => a - b); // 比较值后升序排序
 ```
 
