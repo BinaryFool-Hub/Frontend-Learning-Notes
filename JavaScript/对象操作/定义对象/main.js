@@ -1,10 +1,13 @@
 // 定义对象
 const obj = {
     'name': '小明',
-    age: 19
+    age: 19,
+    hello() {
+        return "hello word";
+    }
 };
 
-// 这两种定义/更新属性都行
+// 这两种 定义/更新属性 都行
 obj["career"] = "爬虫工程师";
 obj.hobby = "python";
 
@@ -19,3 +22,5 @@ obj["fun"]();
 // 这两行取值方式都可以
 console.log(obj["name"]);
 console.log(obj.name);
+
+console.log(obj.hello())
