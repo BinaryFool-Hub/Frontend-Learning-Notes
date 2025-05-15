@@ -51,30 +51,95 @@ const elements = document.getElementsByTagName('input');  // 通过标签获取�
 const elements = document.querySelectorAll("body .myClass");  // 支持任意 CSS 选择器
 ```
 
-# 修改/获取 元素内容/属性
+# 元素内容操作
 
 ```javascript
 /**
- * 修改/获取 标签属性内容
- * 里面标签里面有什么属性就可以 获取/更改 什么属性，文本的属性为textContent，链接的属性为href，表单input的text使用value，……
+ * 修改/获取 标签内容
  * */
 const element = document.getElementById("myId");  // 获取元素
 console.log("原来的文本内容：", element.textContent);  // 输出原文本
 element.textContent = "更改后的文本内容";  // 更改文本
 
 /**
- * 获取/设置 属性的标准方式(推荐)
- * 适用于自定义属性或需要更细节控制时，比 element.href 更安全。
- * */
-const element = document.getElementById("myId");
-element.getAttribute("href");
-element.setAttribute("href", "https://example.com");
-
-/**
  * 修改 HTML 内容，会直接更改里面的HTML代码
  * */
 const element = document.getElementById("myId");
 element.innerHTML = "<p>新HTML内容</p>";
+```
+
+# 元素属性操作
+
+```javascript
+const el = document.getElementById("myId");
+
+el.setAttribute("data-id", "123");       // 设置属性
+el.getAttribute("data-id");              // 获取属性，返回属性值
+el.hasAttribute("data-id");              // 是否存在该属性，返回布偶值
+el.removeAttribute("data-id");           // 移除属性
+```
+
+# 元素类名操作(classList)
+
+```javascript
+const el = document.getElementById("myId");
+
+el.classList.add("class_name");         // 添加类名
+el.classList.remove("class_name");      // 移除类名
+el.classList.toggle("class_name");        // 有就移除，没有就添加
+el.classList.contains("class_name");     // 是否包含某个类名（返回布尔）
+```
+
+# 元素节点操作
+
+## 节点关系操作
+
+都会返回一个节点对象
+
+```javascript
+const el = document.getElementById("myId");
+
+el.parentNode          // 父节点
+el.children            // 所有子节点（HTMLCollection）
+el.firstElementChild   // 第一个子元素
+el.lastElementChild    // 最后一个子元素
+el.nextElementSibling  // 下一个兄弟元素
+el.previousElementSibling // 上一个兄弟元素
+```
+
+## 节点插入与替换
+
+```javascript
+const parent = document.getElementById("list");
+const Node = document.getElementById("banana");
+
+const newNode = document.createElement("li");
+newNode.textContent = "橘子";
+
+// 插入
+parent.insertBefore(newNode, Node);  // 插入到 Node 前
+
+// 替换
+parent.replaceChild(newNode, Node);  // 用 newNode 替换 Node
+```
+
+## 克隆节点
+
+```javascript
+const clone = el.cloneNode(true);  // true 表示深克隆（包含子节点）
+console.log(clone);  // 返回类数组
+```
+
+# 表单元素常用操作
+
+根据需要获取还是重新赋值
+
+```javascript
+const input = document.querySelector("input");
+input.value;             // 获取或设置文本输入框的值
+input.checked;           // 获取或设置 checkbox/radio 是否选中
+input.disabled = true;   // 设置禁用
+input.focus();           // 聚焦
 ```
 
 # 创建新元素添加到页面
@@ -102,4 +167,3 @@ document.getElementById("myButton").addEventListener("click", () => {
     alert("按钮被点击");
 });
 ```
-
