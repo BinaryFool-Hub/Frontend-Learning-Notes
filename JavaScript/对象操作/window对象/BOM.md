@@ -6,7 +6,7 @@
 
 ## alert
 
-会出现一个浏览器窗口的弹窗用于信息提示
+显示提示信息的弹窗，只有一个“确定”按钮
 
 - 参数1(可选)：用于给用户提示的文本
 
@@ -16,7 +16,7 @@ window.alert("提示字符");
 
 ## confirm
 
-会出现一个浏览器窗口的弹窗用于信息提示可选择是否操作
+显示带“确定”和“取消”的弹窗，用于用户确认操作
 
 - 参数1：提示字符
 - 返回值：布尔类型，用户点确定就返回true，取消返回false
@@ -28,7 +28,7 @@ console.log(result);
 
 ## prompt
 
-会出现一个浏览器窗口的弹窗用于信息提示收集用户输入的信息
+收集用户输入，返回字符串或 null
 
 - 参数1(可选)：提示的字符
 - 参数2(可选)：默认值
@@ -145,7 +145,7 @@ function fun() {
 window.onload = fun;
 ```
 
-# history历史对象
+# history访问历史
 
 - back()：加载历史对象列表的前一个url
 - forward()：加载历史对象列表的下一个url
@@ -161,4 +161,58 @@ window.history.forward();
 // 加载历史对象列表的某一个具体url，传入不同的值表示不同的页面
 window.history.go(-1);  // 等价于back()方法
 window.history.go(1);  // 等价于forward()方法
+```
+
+# navigator浏览器信息
+
+```javascript
+console.log(navigator.userAgent);     // 浏览器 UA 字符串
+console.log(navigator.language);      // 浏览器语言
+console.log(navigator.platform);      // 操作系统平台
+console.log(navigator.onLine);        // 是否联网
+```
+
+# screen 屏幕信息
+
+```javascript
+console.log(screen.width);           // 屏幕宽度（单位：像素）
+console.log(screen.height);          // 屏幕高度
+console.log(screen.availWidth);      // 可用宽度（不含任务栏）
+console.log(screen.availHeight);     // 可用高度
+```
+
+# window 尺寸和滚动相关
+
+## 获取窗口尺寸（视口大小）
+
+```javascript
+console.log(window.innerWidth);      // 浏览器内容区域宽度
+console.log(window.innerHeight);     // 浏览器内容区域高度
+```
+
+## 获取/设置滚动位置
+
+```javascript
+console.log(window.scrollX, window.scrollY);  // 当前滚动位置
+window.scrollTo(0, 0);                        // 滚动到顶部
+window.scrollBy(0, 100);                      // 相对当前位置滚动
+```
+
+## resize 和 scroll 事件监听
+
+```javascript
+window.addEventListener("resize", () => {
+    console.log("窗口大小发生变化");
+});
+
+window.addEventListener("scroll", () => {
+    console.log("页面滚动中");
+});
+```
+
+## performance 页面性能信息
+
+```javascript
+console.log(window.performance.now());   // 自页面加载起的毫秒数
+console.log(performance.timing);         // 加载过程各阶段时间戳（老 API）
 ```
