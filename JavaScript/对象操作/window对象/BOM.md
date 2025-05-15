@@ -39,44 +39,6 @@ let result = window.prompt("提示字符", "默认值");
 console.log(result);
 ```
 
-# location页面链接操作
-
-操作当前页面的链接
-
-- href：使用了赋值表示重新请求对应的页面，不是赋值获取当前页面的url
-- reload()：刷新页面
-- hostname：获取域名
-
-```javascript
-console.log(window.location.href);      // 当前完整 URL
-
-window.location = "https://...";        // 跳转页面，加了href不加都一样
-window.location.href = "https://...";   // 跳转页面(推荐使用)
-
-window.location.reload();               // 刷新页面
-
-window.location.hostname;               // 域名
-```
-
-# onload窗体加载完成
-
-整个页面加载完成时触发。        
-注意：window.onload 等到包括图片、样式、iframe 等都加载完才触发。
-
-```javascript
-// 方法一
-window.onload = function () {
-    // 这里写你要的逻辑
-}
-
-// 方法二
-function fun() {
-    // 代码逻辑
-}
-
-window.onload = fun;
-```
-
 # close/open标签页操作
 
 ## close
@@ -140,4 +102,63 @@ let timer = window.setTimeout(fun, 3000);  // 3秒后执行
 
 // 清除定时器
 window.clearTimeout(timer);
+```
+
+# location页面链接操作
+
+操作当前页面的链接
+
+- href：使用了赋值表示重新请求对应的页面，不是赋值获取当前页面的url
+- reload()：刷新页面
+- hostname：获取域名
+- replace()：替换当前页面，参数填写你要替换的页面网址（等于清除历史访问的url重新打开新的网页）
+
+```javascript
+console.log(window.location.href);      // 当前完整 URL
+
+window.location = "https://...";        // 跳转页面，加了href不加都一样
+window.location.href = "https://...";   // 跳转页面(推荐使用)
+
+window.location.reload();               // 刷新页面
+
+window.location.hostname;               // 域名
+
+window.location.replace("https://www.baidu.com");  // 替换当前页面
+```
+
+# onload窗体加载完成
+
+整个页面加载完成时触发。        
+注意：window.onload 等到包括图片、样式、iframe 等都加载完才触发。
+
+```javascript
+// 方法一
+window.onload = function () {
+    // 这里写你要的逻辑
+}
+
+// 方法二
+function fun() {
+    // 代码逻辑
+}
+
+window.onload = fun;
+```
+
+# history历史对象
+
+- back()：加载历史对象列表的前一个url
+- forward()：加载历史对象列表的下一个url
+- go()：里面参数填写你要加载历史里面url索引
+
+```javascript
+// 加载历史对象列表的前一个url
+window.history.back();
+
+// 加载历史对象列表的下一个url
+window.history.forward();
+
+// 加载历史对象列表的某一个具体url，传入不同的值表示不同的页面
+window.history.go(-1);  // 等价于back()方法
+window.history.go(1);  // 等价于forward()方法
 ```
