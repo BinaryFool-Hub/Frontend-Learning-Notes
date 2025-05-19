@@ -92,6 +92,40 @@ el.classList.contains("class_name");     // 是否包含某个类名（返回布
 
 # 元素节点操作
 
+## 创建新元素添加到页面
+
+### 置后追加
+
+```javascript
+const div = document.getElementById('div');  // 获取id为div的元素
+const newDiv = document.createElement("div");  // 创建一个div元素
+newDiv.textContent = "这是新创建的元素";  // 赋值文本该创建的div元素
+div.appendChild(newDiv);  // 将新元素添加到获取到的id为div的，形成子元素
+```
+
+### 自定义追加位置
+
+```javascript
+const parent = document.getElementById("list");
+const Node = document.getElementById("banana");
+
+const newNode = document.createElement("li");
+newNode.textContent = "橘子";
+
+// 插入
+parent.insertBefore(newNode, Node);  // 插入到 Node 前
+```
+
+## 删除元素的操作
+
+```javascript
+const element = document.getElementById("myId");
+const parent = document.getElementById('parent');
+
+element.remove();  // 直接删除自身
+parent.removeChild(element);  // 老方法，兼容性更好(parent是父级，删除父级下面的元素)
+```
+
 ## 节点关系操作
 
 都会返回一个节点对象
@@ -107,7 +141,7 @@ el.nextElementSibling  // 下一个兄弟元素
 el.previousElementSibling // 上一个兄弟元素
 ```
 
-## 节点插入与替换
+## 节点替换
 
 ```javascript
 const parent = document.getElementById("list");
@@ -116,14 +150,11 @@ const Node = document.getElementById("banana");
 const newNode = document.createElement("li");
 newNode.textContent = "橘子";
 
-// 插入
-parent.insertBefore(newNode, Node);  // 插入到 Node 前
-
-// 替换
+// 替换，基于父节点操作子元素节点
 parent.replaceChild(newNode, Node);  // 用 newNode 替换 Node
 ```
 
-## 克隆节点
+## 节点克隆
 
 ```javascript
 const clone = el.cloneNode(true);  // true 表示深克隆（包含子节点）
@@ -140,24 +171,6 @@ input.value;             // 获取或设置文本输入框的值
 input.checked;           // 获取或设置 checkbox/radio 是否选中
 input.disabled = true;   // 设置禁用
 input.focus();           // 聚焦
-```
-
-# 创建新元素添加到页面
-
-```javascript
-const div = document.getElementById('div');  // 获取id为div的元素
-const newDiv = document.createElement("div");  // 创建一个div元素
-newDiv.textContent = "这是新创建的元素";  // 赋值文本该创建的div元素
-div.appendChild(newDiv);  // 将新元素添加到获取到的id为div的，形成子元素
-```
-
-# 删除元素的操作
-
-```javascript
-const element = document.getElementById("myId");
-
-element.remove();  // 直接删除自身
-parent.removeChild(child);  // 老方法，兼容性更好
 ```
 
 # 事件监听
