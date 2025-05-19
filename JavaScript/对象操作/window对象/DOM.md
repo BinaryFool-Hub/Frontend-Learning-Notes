@@ -5,17 +5,19 @@ document 是 DOM（文档对象模型） 的一部分，主要用于操作当前
 
 ## 使用数组元素遍历的注意事项
 
-在操作类数组对象（如 NodeList 或 HTMLCollection）时，推荐使用以下方式：
+在操作类数组对象（如 NodeList 或 HTMLCollection）时，不是很推荐传统for循环，推荐使用以下方式：
 
 ```javascript
-// 推荐 ✅
-for (let i = 0; i < elems.length; i++) {
-    const el = elems[i];
-    // ...
+// for...of（适用于类数组，如 NodeList, HTMLCollection）
+const elements = document.getElementsByClassName('item');
+for (const el of elements) {
+    console.log(el);
 }
 
-Array.from(elems).forEach(obj => {
-    // ...
+
+// forEach（适用于 NodeList）
+document.querySelectorAll('.item').forEach(el => {
+    console.log(el);
 });
 ```
 
