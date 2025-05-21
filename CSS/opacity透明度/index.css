@@ -1,0 +1,7 @@
+div {
+    width: 200px;
+    height: 200px;
+    background-color: red;
+
+    opacity: 20%; /* 设置了背景是红色的，但是可以让其透明变成其他颜色 */
+}

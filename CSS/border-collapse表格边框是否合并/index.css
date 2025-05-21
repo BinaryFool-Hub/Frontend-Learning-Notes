@@ -1,0 +1,12 @@
+
+table {
+    /* 在没有加上该属性前单元格是有间距的,加上后表格的相邻线条也变成一个了 */
+    border-collapse: collapse; /* 默认值separate */
+}
+
+td {
+    border: solid 1px black;
+    width: 100px;
+    background-color: red;
+    height: 100px;
+}
