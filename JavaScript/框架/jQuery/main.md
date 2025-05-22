@@ -8,6 +8,8 @@ jQuery 是一个工具库，封装的是DOM 操作 + 事件 + Ajax + 动画等�
 
 你还是在写 JavaScript，只是用 jQuery 提供的快捷方式来写而已。
 
+官网：http://jquery.com/
+
 ```javascript
 // 原生 JavaScript
 document.getElementById("btn").addEventListener("click", function () {
