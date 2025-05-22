@@ -177,8 +177,37 @@ input.focus();           // 聚焦
 
 # 事件监听
 
+| 特性        | `addEventListener` | `onclick`  |
+|-----------|--------------------|------------|
+| 支持多个事件监听器 | ✔️                 | ❌（后者会覆盖前者） |
+| 支持事件捕获    | ✔️（第三个参数）          | ❌          |
+| 可读性/简洁性   | 稍复杂                | 更简洁        |
+| 现代开发中推荐使用 | ✔️                 | 一般用于简单场景   |
+
 ```javascript
+/**
+ * 推荐使用
+ * */
 document.getElementById("myButton").addEventListener("click", () => {
     alert("按钮被点击");
 });
+```
+
+```javascript
+document.getElementById("myButton").onclick = function () {
+    alert("按钮被点击");
+}
+```
+
+# 元素坐标位置
+
+```javascript
+const brand = document.getElementById('brand');
+
+// 返回的结果是字符串(100px)
+const x = document.defaultView.getComputedStyle(brand).left;
+const y = document.defaultView.getComputedStyle(brand).top;
+
+console.log(x, y);  // 字符串坐标输出
+console.log(parseInt(x), parseInt(y));  // 强制转换为整数，会去除第一个字符后面的所有数据，只返回纯数字
 ```

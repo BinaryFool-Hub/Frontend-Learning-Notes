@@ -192,10 +192,15 @@ console.log(window.innerHeight);     // 浏览器内容区域高度
 
 ## 获取/设置滚动位置
 
+不管是window下面的直接对象还是document.documentElement下面的都可以操作滚动事件，更推荐window下面的直接对象
+
 ```javascript
 console.log(window.scrollX, window.scrollY);  // 当前滚动位置
 window.scrollTo(0, 0);                        // 滚动到顶部
-window.scrollBy(0, 100);                      // 相对当前位置滚动
+window.scrollBy(0, 100);                      // 相对当前位置滚动(x,y)
+
+console.log(document.documentElement.scrollLeft, document.documentElement.scrollTop);  // 当前滚动位置
+document.documentElement.scrollTop = 100;  // 滚动到指定的Y轴坐标
 ```
 
 ## resize 和 scroll 事件监听
@@ -215,4 +220,17 @@ window.addEventListener("scroll", () => {
 ```javascript
 console.log(window.performance.now());   // 自页面加载起的毫秒数
 console.log(performance.timing);         // 加载过程各阶段时间戳（老 API）
+```
+
+# 鼠标坐标
+
+会实时返回鼠标的坐标位置
+
+```javascript
+window.addEventListener('mousemove', function (event) {
+    const x = event.clientX;  // 鼠标x轴坐标
+    const y = event.clientY;  // 鼠标y轴坐标
+
+    console.log(x, y);
+});
 ```

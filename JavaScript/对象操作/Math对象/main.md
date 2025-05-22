@@ -41,3 +41,16 @@ let g = Math.random();
 console.log(g)
 console.log(g * (20 - 10 + 1) + 10)  // 限制区间，双闭区间。公式：(上线-下线+1)+下线
 ```
+
+# abs绝对值
+
+```javascript
+let num = -3.1415926;
+console.log(Math.abs(num));
+```
+
+# pow幂运算
+
+```javascript
+console.log(Math.pow(3, 2));
+```

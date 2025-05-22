@@ -62,7 +62,7 @@ var a = "hello word";
 d = "hello word";
 ```
 
-# 类型
+# 内置数据类型
 
 ## 所有数据类型
 
@@ -99,6 +99,28 @@ d = "hello word";
 console.log(typeof (a));
 console.log(typeof a);  // 只能是后面跟随一个，不能：1+1
 ```
+
+## 类型转换
+
+- parse系列方法
+    ```javascript
+    /**
+     * 会截取第一个非数字前面的数据并且转换为对应的类型
+     */
+    let str = "100元111"
+    console.log(parseInt(str));
+    console.log(parseFloat(str));
+    ```
+- 类似python的方法
+    ```javascript
+    /**
+     * 大写开头的数类型是内置的封装类
+     * 使用Number转换的数据里必须是纯数字，否则会转换失败
+     * */
+    let str = "100";
+    let result = Number(str);
+    console.log(typeof result)
+    ```
 
 # 特殊数值
 
@@ -153,3 +175,33 @@ console.log(typeof a);  // 只能是后面跟随一个，不能：1+1
 | &&         | and    |
 | \|\|       | or     |
 | !          | not    |
+
+# json数据的序列化和反序列化
+
+JavaScript里面是不是没有json数据，只有对象这个概念，但是和json数据类似
+
+```javascript
+/**
+ * JavaScript的对象也可以转换为str里面嵌套json数据
+ * */
+const data = {
+        name: '小明',
+        age: 19,
+        def_fun: function () {
+            console.log(111)
+        }
+    }
+
+/**
+ * 转换为字符串
+ * JavaScript 对象中包含函数，用 JSON.stringify() 序列化时会忽略函数，不会报错，但函数不会出现在结果中。
+ * */
+console.log(JSON.stringify(data));
+
+/**
+ * 转换为javascript对象(json数据)
+ * 把字符串 JSON 解析为 JavaScript 对象。
+ * */
+const data1 = '{"name": "小明", "age": 19}'
+console.log(JSON.parse(data1));
+```
