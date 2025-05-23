@@ -24,3 +24,7 @@ $("#btn").click(function () {
     alert("Clicked!");
 });
 ```
+
+# jQuery大纲
+
+![](images/jyquer大纲.png)
