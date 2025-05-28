@@ -211,3 +211,57 @@ const y = document.defaultView.getComputedStyle(brand).top;
 console.log(x, y);  // 字符串坐标输出
 console.log(parseInt(x), parseInt(y));  // 强制转换为整数，会去除第一个字符后面的所有数据，只返回纯数字
 ```
+
+# select和option标签操作
+
+## 创建并添加 option
+
+```javascript
+const select = document.getElementById('mySelect');
+
+// 创建新选项（文本, 值, 默认选中, 是否选中），一般后两个参数不填写
+const option = new Option('显示文本', '值', false, false);
+
+// 添加到 select 中
+select.add(option);  // 也可以用 select.appendChild(option)
+```
+
+## 删除某个 option
+
+```javascript
+const select = document.getElementById('mySelect');
+
+select.remove(1);  // 删除第2个选项（从 0 开始）
+```
+
+## 获取当前选中项的值/文本索引
+
+```javascript
+const select = document.getElementById('mySelect');
+
+const index = select.selectedIndex;  // 选中项的索引
+const value = select.value;  // 选中项的 value
+const text = select.options[select.selectedIndex].text;  // 选中项的显示文本
+```
+
+## 设置选中项
+
+```javascript
+const select = document.getElementById('mySelect');
+
+select.value = 'someValue';  // 按 value 设置选中项
+// 或者：
+select.selectedIndex = 2;    // 选中第3个选项
+```
+
+## 清空所有选项
+
+如果需要保留第一个默认的则需要使用第二个，值给1就可以保留第一个
+
+```javascript
+const select = document.getElementById('mySelect');
+
+select.innerHTML = '';  // 清空全部 option
+// 或：
+select.options.length = 0;
+```
