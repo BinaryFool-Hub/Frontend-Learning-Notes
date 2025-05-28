@@ -454,7 +454,11 @@ $('#btn').off('click'); // 解绑 click 事件
 用于在 DOM 加载完成后立即执行代码，不必等图片、视频等资源加载完。
 
 ```javascript
-// 写法一
+/**
+ * 这三种写法都是一样的，只是写法风格不一样
+ * */
+
+// 写法一(不被推荐了，使用了弃用符号)
 $(document).ready(function () {
     console.log('DOM 已就绪');
 });
@@ -463,6 +467,11 @@ $(document).ready(function () {
 $(function () {
     console.log('DOM 已就绪');
 });
+
+// 写法三
+$(() => {
+    console.log('DOM 已就绪');
+})
 ```
 
 # Ajax请求
