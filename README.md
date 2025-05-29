@@ -10,6 +10,6 @@
 
 编辑器: WebStorm 2024.2.3
 
-**编辑器: HBuilder X 4.23
+编辑器: HBuilder X 4.23
 
 node.js: 21.7.3
