@@ -267,8 +267,8 @@ elem.removeAttr('data-type');
 const div = $("div");
 
 // 添加样式名称,不需要`.`
-div.addClass('larger');
-div.addClass('colorWhite');
+div.addClass('larger');  // 添加一个
+div.addClass('colorWhite larger');  // 添加多个
 
 // 添加具体的样式，形成的是行内样式
 div.css('text-align', 'center');  // 单个
@@ -278,7 +278,12 @@ div.css({
 });  // 批量
 
 // 移除指定样式
-div.removeClass('colorWhite');
+div.removeClass('colorWhite');  // 移除一个
+div.removeClass('colorWhite larger');  // 移除多个
+
+// 有样式就移除，无就添加
+div.toggleClass('colorWhite');  // 操作一个
+div.toggleClass('colorWhite larger');  // 操作多个
 ```
 
 # 元素内容操作
