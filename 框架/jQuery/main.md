@@ -311,7 +311,7 @@ console.log(text_content)
 dic.text("hello word");
 ```
 
-# 元素创建/添加/删除操作
+# 元素创建/添加/删除/替换/克隆操作
 
 ## 创建元素
 
@@ -391,6 +391,44 @@ div.after(h1);
 ```javascript
 // 删除本身极其下面的元素
 $('div').remove();
+```
+
+## 替换元素
+
+语序不一样而已，作用一样
+
+```javascript
+const div = $('div');
+
+/**
+ * 用新内容替换这些元素
+ * */
+div.replaceWith('<p>hello word</p>')  // 也可以传入$对象
+
+
+/**
+ * 用新内容替换所有匹配选择器的元素
+ * */
+$('<p>hello word</p>').replaceAll(div)  // 可以传入字符串的选择器(body > div)
+```
+
+## 克隆元素
+
+和JavaScript差不多的语法
+
+```javascript
+const div = $('div');
+
+/**
+ * true：子节点也一起克隆
+ * false：只克隆当前的元素，不涉及子元素
+ * */
+const result = div.clone(true);
+
+console.log(result)
+
+// 克隆出来的节点可以插入到新的位置
+div.after(result)
 ```
 
 # 事件操作
